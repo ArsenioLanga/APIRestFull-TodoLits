@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +33,7 @@ public class User {
 	@NotBlank(groups = CreateUser.class) //= NotNull + NotEmpty
 	private String username;
 	
+	@JsonProperty(access = Access.WRITE_ONLY)  //somente leitura
 	@Column(length = 8, nullable = false, unique = false)
 	@NotBlank(groups = {CreateUser.class, UpdateUser.class})
 	@Size(groups = {CreateUser.class, UpdateUser.class}, min = 4, max = 8)
