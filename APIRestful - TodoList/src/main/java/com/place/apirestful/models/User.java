@@ -13,6 +13,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -38,6 +40,9 @@ public class User {
 	@NotBlank(groups = {CreateUser.class, UpdateUser.class})
 	@Size(groups = {CreateUser.class, UpdateUser.class}, min = 4, max = 8)
 	private String password;
+	
+	@OneToMany(mappedBy = "user")
+	List<Task> taks = new ArrayList<>();
 	
 	public User() {
 		
@@ -74,6 +79,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Task> getTaks() {
+		return taks;
+	}
+
+	public void setTaks(List<Task> taks) {
+		this.taks = taks;
 	}
 
 	@Override
