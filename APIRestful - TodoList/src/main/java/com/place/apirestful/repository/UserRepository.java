@@ -6,4 +6,6 @@ import com.place.apirestful.models.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 
+	
+	
 }

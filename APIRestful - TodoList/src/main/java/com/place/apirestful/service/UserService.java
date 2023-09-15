@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.place.apirestful.models.User;
-import com.place.apirestful.repository.TaskRepository;
 import com.place.apirestful.repository.UserRepository;
 
 @Service
@@ -17,9 +16,6 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
-	@Autowired
-	private TaskRepository taskRepository;
 	
 	@Transactional
 	public User saveUser(User user) {
