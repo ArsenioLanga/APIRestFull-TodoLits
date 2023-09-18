@@ -1,5 +1,6 @@
 package com.place.apirestful.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class TaskService {
 		return task.orElseThrow(
 				()-> new RuntimeException("Tarefa não encontrada! Verifica o id: "+ id + ", Tipo " + User.class.getName())
 		);
+	}
+	
+	public List<Task> findAllById(Long id) {
+		List<Task> tasks = this.taskRepository.findByUser_id(id);
+		return tasks;
 	}
 	
 	@Transactional

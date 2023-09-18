@@ -14,5 +14,5 @@ public interface TaskRepository extends JpaRepository<Task, Long>{
 //	List<Task> findByUser_id(@Param("id") Long id);
 //	
 //	@Query(value="select * from tb_tasks  where user_id = :id", nativeQuery = true)
-//	List<Task> qualquerNome(@Param("id") Long id);
+//	List<Task> findByUser_id(@Param("id") Long id);
 }
